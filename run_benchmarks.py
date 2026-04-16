@@ -200,9 +200,22 @@ def run_single_benchmark(
             duration_seconds=duration,
         )
 
-    # Parse JSON output
+    # Parse JSON output — scripts may print progress lines before the JSON blob
+    stdout = proc.stdout
+    json_start = stdout.find("{")
+    if json_start == -1:
+        return BenchmarkResult(
+            benchmark=bench_key,
+            label=info["label"],
+            error="No JSON object found in output",
+            duration_seconds=duration,
+        )
+    # Show progress lines that preceded the JSON
+    if json_start > 0:
+        sys.stdout.write(stdout[:json_start])
+        sys.stdout.flush()
     try:
-        raw = json.loads(proc.stdout)
+        raw = json.loads(stdout[json_start:])
     except json.JSONDecodeError as exc:
         return BenchmarkResult(
             benchmark=bench_key,
