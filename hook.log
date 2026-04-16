@@ -1,0 +1,10 @@
+[2026-04-16T17:38:39+09:00] === Hook fired ===
+[2026-04-16T17:38:40+09:00] session= cwd= event=
+[2026-04-16T17:38:41+09:00] Output from task-output.txt (19 chars) after 1s
+[2026-04-16T17:38:41+09:00] Meta: task=test-task group=-5035565292
+[2026-04-16T17:38:41+09:00] Wrote latest.json
+[2026-04-16T17:49:34+09:00] === Hook fired ===
+[2026-04-16T17:49:34+09:00] session= cwd= event=
+[2026-04-16T17:49:35+09:00] Output from task-output.txt (19 chars) after 1s
+[2026-04-16T17:49:35+09:00] Meta: task=test-task group=-5035565292
+[2026-04-16T17:49:35+09:00] Wrote latest.json
